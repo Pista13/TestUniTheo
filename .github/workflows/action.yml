@@ -8,7 +8,7 @@ jobs:
       - name: Run tests
         run : |
           pip3 install pytest
-          agt-get install utils
+          apt-get install utils
           pip3 install numpy
           pytest
       - name: docker login
