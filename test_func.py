@@ -1,13 +1,13 @@
 from Module import Wizard,Person,HealthPotion
 
 def test_wizard_points():
-    wiz=Wizard('wiz')
+    wiz=Wizard("wiz")
     hp=wiz.get_life_points()
     expected_result=80
     assert hp == expected_result
 
 def test_wizard_nom():
-    wiz=Wizard('wiz')
+    wiz=Wizard("wiz")
     hp=wiz.name
     expected_result="wiz"
     assert hp == expected_result
@@ -25,7 +25,7 @@ def test_Person_nom():
     assert hp == expected_result
 
 def test_wizer_hit():
-    wiz=Wizard('wiz')
+    wiz=Wizard("wiz")
     user=Person('pers')
     hp_wiz=user.get_life_points()
     hp=user.get_life_points()
@@ -33,7 +33,7 @@ def test_wizer_hit():
     hp_new=user.get_life_points()
     assert hp_new == hp -15
 def test_person_hit():
-    wiz=Wizard('wiz')
+    wiz=Wizard("wiz")
     user=Person('pers')
     hp_wiz=user.get_life_points()
     hp=wiz.get_life_points()
