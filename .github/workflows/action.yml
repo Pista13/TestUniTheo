@@ -5,20 +5,29 @@ jobs:
     runs-on: ubuntu-18.04
     steps: 
       - uses: actions/checkout@v2
+
       - name: Run tests
         run : |
           pip3 install pytest
-          apt-get install utils
           pip3 install numpy
           pytest
+
       - name: docker login
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
       - name: build docker image
         run : 
           docker build -t test .
+
       - name: run docker image
         run : 
           docker run test
+
+      - name: docker tag
+        run : docker tag test:latest pista13/testunitaires:testuni
+
+      - name: docker push
+        run : docker push pista13/testunitaires:testuni
