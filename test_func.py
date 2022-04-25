@@ -32,6 +32,7 @@ def test_wizer_hit():
     wiz.hit(user)
     hp_new=user.get_life_points()
     assert hp_new == hp -15
+    
 def test_person_hit():
     wiz=Wizard("wiz")
     user=Person('pers')
